@@ -26,6 +26,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./STUDENTAPI-SPRINGBOOT
+          dockerfile: ../STUDENTAPI-SPRINGBOOT/backend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USER }}/dockeraws-backend:latest
 
@@ -33,6 +34,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: ./STUDENTAPI-REACT
+          dockerfile: ../STUDENTAPI-REACT/frontend.Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USER }}/dockeraws-frontend:latest
 
