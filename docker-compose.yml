@@ -6,21 +6,21 @@ services:
       MYSQL_ROOT_PASSWORD: docker
       MYSQL_DATABASE: klustudentdb
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
 
   backend:
-    image: suryakiran1993/docker-backend:latest
+    image: suryakiran1993/dockeraws-backend:latest
     container_name: springboot
     ports:
-      - "2025:2000"
+      - "2025:8080"
     depends_on:
       - mysqldb
     restart: on-failure
 
   frontend:
-    image: suryakiran1993/docker-frontend:latest
+    image: suryakiran1993/dockeraws-frontend:latest
     container_name: react
     ports:
       - "3000:80"
